@@ -1,0 +1,25 @@
+---
+- name: Install Java 8
+  hosts: 3.111.217.7
+  become: true  
+  
+  tasks:
+    - name: Add Oracle JDK 8 PPA repository
+      apt_repository:
+        repo: ppa:webupd8team/java
+        state: present
+
+    - name: Accept Oracle JDK 8 license
+      debconf:
+        name: oracle-java8-installer
+        question: shared/accepted-oracle-license-v1-1
+        value: true
+        vtype: select
+        
+    - name: Install Oracle JDK 8
+      apt:
+        name: oracle-java8-installer
+        state: present
+        
+    - name: Set Java 8 as default
+      shell: update-alternatives --set java /usr/lib/jvm/java-8-oracle/jre/bin/java
