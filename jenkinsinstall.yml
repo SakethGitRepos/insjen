@@ -1,0 +1,29 @@
+---
+- name: Install Jenkins
+  hosts: 13.126.174.88
+  become: true  
+  
+  tasks:
+    - name: Add Jenkins APT repository key
+      apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+        
+    - name: Add Jenkins APT repository
+      apt_repository:
+        repo: deb http://pkg.jenkins.io/debian-stable binary/
+        state: present
+        
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        
+    - name: Install Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+        
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
