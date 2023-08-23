@@ -14,7 +14,7 @@ pipeline {
                 // Build the Docker image
                 script {
                     docker.image('docker:latest').inside {
-                        sh "docker build -t ngximg -f dockerfile."
+                        sh "docker build -t ngximg -f Dockerfile."
                     }
                 }
             }
