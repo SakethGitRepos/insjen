@@ -1,8 +1,8 @@
 version: '3'
 services:
   nginx:
-    image: my-nginx-image
-    container_name: my-nginx-container
+    image: nginx
+    container_name: ngncon
     ports:
       - "8080:80"
     restart: always
