@@ -1,0 +1,11 @@
+---
+- name: Manage Docker Compose project
+  hosts: localhost
+  become: yes  # To run tasks as root or with sudo privileges
+
+  tasks:
+    - name: Bring up Docker Compose
+      docker_compose:
+        project_src: dockercompose.yml
+        project_name: myproject
+        state: present  # Start the services
