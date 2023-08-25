@@ -24,8 +24,7 @@ pipeline {
             steps {
                 // Deploy using Docker Compose
                 script {
-                    dockerComposePath = "/home/ec2-user/insjen/dockercompose.yml"  // Update with the actual path
-                    sh "docker-compose -f $dockerComposePath up -d"
+                    sh "docker-compose -f dockercompose.yml up -d"
                 }
             }
         }
