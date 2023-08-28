@@ -1,0 +1,10 @@
+---
+- name: Run Docker Compose
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Navigate to directory
+      shell: cd /home/ubuntu/insjen
+
+    - name: Run Docker Compose
+      command: docker-compose up -d
