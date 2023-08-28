@@ -6,7 +6,7 @@
   tasks:
     - name: Bring up Docker Compose
       docker_compose:
-        shell: docker-compose -f dockercompose.yml up -d
+        shell: docker-compose -f dockercompose.yml up
         project_src: dockercompose.yml
         project_name: myproject
         state: present  # Start the services
