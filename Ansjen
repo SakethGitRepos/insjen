@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 script {
-                    sh "ansible-playbook jenans.yml "
+                    sh "ansible-playbook jenans.yml"
                 }
             }
         }
