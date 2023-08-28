@@ -7,4 +7,4 @@
       shell: cd /home/ubuntu/insjen
 
     - name: Run Docker Compose
-      command: docker-compose up -d
+      shell: docker-compose up -d
