@@ -1,6 +1,8 @@
 ---
 - name: Manage Docker Compose project
   hosts: localhost
+  connection: local
+  gather_facts: false
   become: yes  # To run tasks as root or with sudo privileges
 
   tasks:
