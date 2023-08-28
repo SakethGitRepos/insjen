@@ -1,10 +1,36 @@
+#---
+#- name: Run Docker Compose
+ # hosts: localhost
+  #become: true
+  #tasks:
+   # - name: Navigate to directory
+    #  shell: cd /home/ubuntu/insjen
+
+    #- name: Run Docker Compose
+    #  shell: docker-compose up -d
+
+
 ---
 - name: Run Docker Compose
   hosts: localhost
   become: true
   tasks:
-    - name: Navigate to directory
-      shell: cd /home/ubuntu/insjen
+   # - name: Copy Docker Compose file
+    #  copy:
+    #   src: /path/to/your/docker-compose.yml
+    #  dest: /path/on/remote/host/docker-compose.yml
+
+    - name: Check if Docker Compose is installed
+      stat:
+        path: /usr/local/bin/docker-compose
+        register: docker_compose_check
+
+    #- name: Install Docker Compose
+     # pip:
+      #  name: docker-compose
+       # state: present
+     # when: docker_compose_check.stat.exists == false
 
     - name: Run Docker Compose
-      shell: docker-compose up -d
+      shell: cd /home/ubuntu/insjen
+      command: docker-compose up -d
